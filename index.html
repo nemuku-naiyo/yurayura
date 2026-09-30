@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ゆらゆら伝説</title>
-<meta name="description" content="長押しで潜って、障害物をよけながらどこまで行けるか。ゆらゆらさんの波乗りゲーム。">
+<meta name="description" content="長押しで潜って、障害物をよけながらどこまで行けるか。ゆらゆら様の波乗りゲーム。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ゆらゆら伝説">
-<meta property="og:description" content="ゆらゆらさんと、どこまで行ける？">
+<meta property="og:description" content="ゆらゆら様と、どこまで行ける？">
 <meta property="og:url" content="https://nemuku-naiyo.github.io/yurayura/">
 <meta property="og:image" content="https://nemuku-naiyo.github.io/yurayura/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -172,7 +172,7 @@ class Sk {
 function line(w){ ctx.lineWidth = w || 3; ctx.strokeStyle = INK; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; }
 function dot(x, y, r){ ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); }
 
-// ===== ゆらゆらさんの絵 =====
+// ===== ゆらゆら様の絵 =====
 const SW = 110, SH = SW * 104 / 240;
 const imgLine = new Image(), imgMask = new Image();
 imgLine.src = IMG_LINE; imgMask.src = IMG_MASK;
@@ -632,7 +632,7 @@ function drawHUD(){
     ctx.globalAlpha = Math.min(1, labelT * 2);
     ctx.textAlign = 'center'; ctx.font = '600 22px "Klee One", sans-serif';
     const isNew = newThisRun.includes(colorIdx);
-    ctx.fillText(COLORS[colorIdx][0] + (isNew ? '　はじめて！' : ''), W / 2, SURF + 190);
+    ctx.fillText(COLORS[colorIdx][0] + 'の姿に' + (isNew ? '　はじめて！' : ''), W / 2, SURF + 190);
     ctx.globalAlpha = 1;
   }
   if (playT < 3 && labelT <= 0){
@@ -706,7 +706,7 @@ function renderCard(d, isBest){
   g.lineWidth = 9; g.strokeStyle = INK; g.lineCap = 'round'; g.stroke();
 
   g.textAlign = 'center'; g.fillStyle = INK; g.font = '600 58px "Klee One", sans-serif';
-  g.fillText('「' + COLORS[colorIdx][0] + '」まで とどいた', CW / 2, 920);
+  g.fillText('「' + COLORS[colorIdx][0] + '」の姿に なられた', CW / 2, 920);
   const n = COLORS.length, gap = 58, x0 = CW / 2 - gap * (n - 1) / 2;
   COLORS.forEach((cl, i) => {
     g.beginPath(); g.arc(x0 + i * gap, 1030, 19, 0, 7);
@@ -718,7 +718,7 @@ function renderCard(d, isBest){
   // 知らない人向けの帯：どこで遊べるか
   g.fillStyle = INK; g.fillRect(0, bandY, CW, CH - bandY);
   g.fillStyle = '#fff'; g.font = '600 54px "Klee One", sans-serif';
-  g.fillText('ゆらゆらさんと、どこまで行ける？', CW / 2, bandY + 92);
+  g.fillText('ゆらゆら様と、どこまで行ける？', CW / 2, bandY + 92);
   g.font = '40px "Klee One", sans-serif';
   g.fillText('遊ぶには ' + SHOP_IG + ' のプロフィールから', CW / 2, bandY + 164);
 
@@ -727,7 +727,7 @@ function renderCard(d, isBest){
   return c.toDataURL('image/png');
 }
 function caption(){
-  return 'ゆらゆらさんは ' + Math.floor(dist) + 'm 進んで「' + COLORS[colorIdx][0] + '」になった🐋\n遊ぶには ' + SHOP_IG + ' のプロフィールから\n#ゆらゆら伝説';
+  return 'ゆらゆら様は ' + Math.floor(dist) + 'm 進まれ、「' + COLORS[colorIdx][0] + '」の姿になられた🐋\n遊ぶには ' + SHOP_IG + ' のプロフィールから\n#ゆらゆら伝説';
 }
 async function shareCard(){
   if (cardBlob && navigator.canShare){
